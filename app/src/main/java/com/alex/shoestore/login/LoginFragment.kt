@@ -27,6 +27,7 @@ class LoginFragment: Fragment() {
                 .actionLoginDestinationToWelcomeDestination())
         }
 
+        setHasOptionsMenu(false)
         return binding.root
 
     }

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.alex.shoestore.login.LoginFragment">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/loginFragment"
         android:layout_width="match_parent"
@@ -17,6 +18,7 @@
             android:layout_marginStart="72dp"
             android:layout_marginBottom="120dp"
             android:text="@string/sign_up"
+            style="@style/Button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/passwordEditText"
@@ -29,6 +31,7 @@
             android:layout_marginEnd="72dp"
             android:layout_marginBottom="120dp"
             android:text="@string/sign_in"
+            style="@style/Button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.979"
@@ -63,5 +66,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/emailEditText" />
 
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

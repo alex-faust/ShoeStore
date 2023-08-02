@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.alex.shoestore.R
 import com.alex.shoestore.databinding.InstructionFragmentBinding
-import com.alex.shoestore.models.Shoe
 
 class InstructionsFragment: Fragment() {
 
@@ -24,6 +23,7 @@ class InstructionsFragment: Fragment() {
                 .actionInstructionsDestinationToShoeListDestination())
         }
 
+        setHasOptionsMenu(false)
         return binding.root
     }
 }

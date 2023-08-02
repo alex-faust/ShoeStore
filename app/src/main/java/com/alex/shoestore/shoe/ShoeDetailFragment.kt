@@ -4,20 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import androidx.core.os.bundleOf
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.setFragmentResult
-import androidx.fragment.app.setFragmentResultListener
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.alex.shoestore.R
 import com.alex.shoestore.databinding.ShoeDetailFragmentBinding
-import com.alex.shoestore.models.Shoe
 import com.alex.shoestore.models.ShoeViewModel
-import timber.log.Timber
 
 
 class ShoeDetailFragment : Fragment() {
@@ -36,21 +30,41 @@ class ShoeDetailFragment : Fragment() {
         binding.shoeViewModel = viewModel
         binding.lifecycleOwner = this
 
-        binding.cancelButton.setOnClickListener{
+        binding.cancelButton.setOnClickListener {
             findNavController().navigate(ShoeDetailFragmentDirections.detailToList())
         }
 
         binding.saveButton.setOnClickListener {
-            viewModel.addShoe(
-                binding.shoeNameInput.text.toString(),
-                binding.shoeSizeInput.text.toString().toDouble(),
-                binding.companyNameInput.text.toString(),
-                binding.shoeInfoInput.text.toString()
-            )
-            val action = ShoeDetailFragmentDirections.detailToList()
-            findNavController().navigate(action)
+            val name = binding.shoeNameInput.text.toString().trim()
+            val size = binding.shoeSizeInput.text.toString().trim().toDouble()
+            val company = binding.companyNameInput.text.toString().trim()
+            val info = binding.shoeInfoInput.text.toString().trim()
+
+
+
+           //val fields = listOf(name, size, company, info)
+
+            //val non = fields.any() { it == null }
+            if(name == "" || company == "" || info == ""){
+                Toast.makeText(
+                    this.activity, "Please enter all info",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                viewModel.addShoe(name, size, company, info)
+
+                val action = ShoeDetailFragmentDirections.detailToList()
+                findNavController().navigate(action)
+            }
+
+
         }
 
+        setHasOptionsMenu(false)
         return binding.root
+    }
+
+    fun cancelB(view: View) {
+        findNavController().navigate(ShoeDetailFragmentDirections.detailToList())
     }
 }
