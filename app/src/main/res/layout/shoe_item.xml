@@ -28,7 +28,7 @@
         app:layout_constraintTop_toBottomOf="@+id/shoeNameResult" />
 
     <TextView
-        android:id="@+id/companyNameResult1"
+        android:id="@+id/companyNameResult"
         android:layout_width="0dp"
         android:layout_height="16dp"
         android:layout_marginStart="128dp"

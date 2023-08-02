@@ -22,17 +22,19 @@ class ShoeViewModel : ViewModel() {
 
 
     init {
-        Timber.i("JUMP init for shoeViewModel")
-        _shoeList.value = mutableListOf()
-        Timber.i("JUMP shoelist size is ${_shoeList.value!!.size}")
-        //Timber.i("JUMP shoelist size is ${_shoeList.value!![0]}")
+        Timber.i("HERE IS init for shoeViewModel")
+        //_shoeList.value = mutableListOf()
+        Timber.i("HERE IS shoelist size is ${_shoeList.value!!.size}")
+        //Timber.i("HERE IS shoelist size is ${_shoeList.value!![0]}")
 
     }
 
     fun addShoe(sName: String, cName: String, sSize: Double, sInfo: String) {
-        Timber.i("JUMP info seen in view model $sName, $cName, $sSize, $sInfo")
+        Timber.i("HERE IS info seen in view model $sName, $cName, $sSize, $sInfo")
+        Timber.i("HERE IS shoelist size is ${_shoeList.value!!.size}")
+
         //_shoeList.value?.toMutableList()?.add(Shoe(sName, sSize, cName, sInfo))
-        (_shoeList.value as?MutableList<Shoe>)?.add(Shoe(sName, sSize, cName, sInfo))
+        //(_shoeList.value as?MutableList<Shoe>)?.add(Shoe(sName, sSize, cName, sInfo))
     }
 
     /*fun addShoeVM(name: String, size: Double, company: String, info: String) {
