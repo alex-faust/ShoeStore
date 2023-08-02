@@ -14,6 +14,7 @@ import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.alex.shoestore.R
+import com.alex.shoestore.databinding.ShoeItemBinding
 import com.alex.shoestore.databinding.ShoeListFragmentBinding
 import com.alex.shoestore.models.Shoe
 import com.alex.shoestore.models.ShoeViewModel
@@ -33,15 +34,18 @@ class ShoeListFragment : Fragment() {
         binding.shoeViewModel = viewModel
         //binding.lifecycleOwner = this
 
-        val lin: LinearLayout = binding.container
-        val view: View? = View.inflate(this.activity, R.layout.shoe_item, null)
+
 
 
         viewModel.shoeList.observe(viewLifecycleOwner) { shoeList ->
             binding.container.removeAllViews()
             //update the ui
 
-            setFragmentResultListener("requestKey") { requestKey, bundle ->
+            for (shoe in viewModel.shoeList.value!!) {
+                addShoe(shoe)
+            }
+
+            /*setFragmentResultListener("requestKey") { requestKey, bundle ->
                 val result = bundle.getString("bundleKey")
                 Timber.i("HERE IS fragment result and result is $result")
             }
@@ -51,55 +55,49 @@ class ShoeListFragment : Fragment() {
             //var shoeSize = view?.findViewById<TextView>(R.id.shoeSizeResult)?.text.toString().toDouble()
             var shoeInfo = view?.findViewById<TextView>(R.id.shoeInfoResult)?.text
 
+            Timber.i("HERE IS views text $shoeName, $company, $shoeInfo")
+
             shoeList.forEach { shoeModel ->
                 shoeName = shoeModel.name
                 company = shoeModel.company
                 //shoeSize = 4.0
                 shoeInfo = shoeModel.description
 
-                //R.id.companyNameResult1 =
-                lin.addView(view)
+                Timber.i("HERE IS shoeModel text $shoeName, $company, $shoeInfo")
 
-            }
+                //addShoe(Shoe(shoeName, 4.0, company, shoeInfo))
+
+            } */
 
 
             //binding.container.removeAllViews()
             Timber.i("HERE IS shoe list observer observed")
 
-            //val lin: LinearLayout = binding.container
-            //val view: View? = View.inflate(this.activity, R.layout.shoe_item, null)
-            //val shoeName: String = view?.resources?.getResourceTypeName(R.id.shoeNameInput).toString()
 
-            //lin.addView(view)
-
-           /* for (shoe in viewModel.shoeList.value!!) {
-                //viewModel.addShoeVM(shoeName, 0.0, "", "")
-                //addShoeSL(Shoe(shoeName, 0.0, "", ""))
-
-                lin.addView(view)
-            }*/
         }
-
 
         binding.fab.setOnClickListener {
             Timber.i("HERE IS button clicked")
-            //lin.addView(view)
             findNavController().navigate(ShoeListFragmentDirections.listToDetail())
-
         }
-
-
 
         return binding.root
     }
 
-    fun addShoeSL(shoe: Shoe) {
-        val view = layoutInflater.inflate(R.layout.shoe_item, null)
-        //view.
+    fun addShoe(shoe: Shoe) {
+        val lin: LinearLayout = binding.container
+        val view: View? = View.inflate(this.activity, R.layout.shoe_item, null)
 
-        //val shoe: Shoe = Shoe(viewModel.addShoeVM(view.compan))
-        //view.
-        //binding.listLinearLayoutId.addView(view)
+        //val secondBinding = ShoeItemBinding.inflate(layoutInflater)
+
+
+
+        view?.findViewById<TextView>(R.id.shoeNameResult)?.text = shoe.name
+        view?.findViewById<TextView>(R.id.shoeSizeResult)?.text = shoe.size.toString()
+        view?.findViewById<TextView>(R.id.companyNameResult)?.text = shoe.company
+        view?.findViewById<TextView>(R.id.shoeInfoResult)?.text = shoe.description
+
+        lin.addView(view)
 
     }
 }

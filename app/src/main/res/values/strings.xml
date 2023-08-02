@@ -15,4 +15,6 @@
     <string name="company_name">Company Name:</string>
     <string name="shoe_size">Shoe Size:</string>
     <string name="shoe_info">Shoe Info:</string>
+    <string name="shoe_description"> </string>
+    <string name="description">Description</string>
 </resources>

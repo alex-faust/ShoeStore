@@ -22,8 +22,7 @@ class MainActivity : FragmentActivity() {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.activity_main)
         Timber.plant(Timber.DebugTree())
-        binding = DataBindingUtil.setContentView<ActivityMainBinding>(
-            this, R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         //drawerLayout = binding.drawerLayout
 
        //val navController = this.findNavController(R.id.nav_host_fragment)

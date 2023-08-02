@@ -36,31 +36,17 @@ class ShoeDetailFragment : Fragment() {
         binding.shoeViewModel = viewModel
         binding.lifecycleOwner = this
 
-
-
-        binding.cancelButton.setOnClickListener {
-            //Timber.i("HERE IS cancel button was clicked in shoe detail")
+        binding.cancelButton.setOnClickListener{
             findNavController().navigate(ShoeDetailFragmentDirections.detailToList())
         }
 
         binding.saveButton.setOnClickListener {
-            //Timber.i("HERE IS save button was clicked in shoe detail")
-            val result =
-                binding.shoeNameInput.text.toString()
-
-
-            setFragmentResult(
-                "requestKey",
-                bundleOf(
-                    "bundleKey" to result))
-
             viewModel.addShoe(
                 binding.shoeNameInput.text.toString(),
-                binding.companyNameInput.text.toString(),
                 binding.shoeSizeInput.text.toString().toDouble(),
+                binding.companyNameInput.text.toString(),
                 binding.shoeInfoInput.text.toString()
             )
-
             val action = ShoeDetailFragmentDirections.detailToList()
             findNavController().navigate(action)
         }

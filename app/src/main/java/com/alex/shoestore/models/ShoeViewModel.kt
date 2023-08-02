@@ -18,27 +18,17 @@ class ShoeViewModel : ViewModel() {
     val save: LiveData<Boolean>
         get() = _save
 
-    private val m = ArrayList<Shoe>()
-
 
     init {
-        Timber.i("HERE IS init for shoeViewModel")
-        //_shoeList.value = mutableListOf()
         Timber.i("HERE IS shoelist size is ${_shoeList.value!!.size}")
-        //Timber.i("HERE IS shoelist size is ${_shoeList.value!![0]}")
-
+        _shoeList.value = ArrayList()
     }
 
-    fun addShoe(sName: String, cName: String, sSize: Double, sInfo: String) {
-        Timber.i("HERE IS info seen in view model $sName, $cName, $sSize, $sInfo")
-        Timber.i("HERE IS shoelist size is ${_shoeList.value!!.size}")
+    fun addShoe(sName: String, sSize: Double, cName: String, sInfo: String) {
+        Timber.i("HERE IS info seen in view model $sName, $sSize, $cName, $sInfo")
 
-        //_shoeList.value?.toMutableList()?.add(Shoe(sName, sSize, cName, sInfo))
-        //(_shoeList.value as?MutableList<Shoe>)?.add(Shoe(sName, sSize, cName, sInfo))
+        (_shoeList.value as ArrayList<Shoe>).add(Shoe(sName, sSize, cName, sInfo))
+        Timber.i("HERE IS shoe list size is ${_shoeList.value!!.size}")
     }
 
-    /*fun addShoeVM(name: String, size: Double, company: String, info: String) {
-        val shoe = Shoe(name, size, company, info)
-        _shoeList.value?.add(shoe)
-    }*/
 }
