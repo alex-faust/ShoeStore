@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.alex.shoestore.shoe.ShoeListFragment">
+
+    <data>
+        <variable
+            name="shoeViewModel"
+            type="com.alex.shoestore.models.ShoeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/list_constraint_layout">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="73dp"
+            android:layout_height="75dp"
+            android:layout_gravity="bottom|end"
+            android:layout_marginStart="284dp"
+            android:layout_marginTop="576dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="50dp"
+            android:contentDescription="fab"
+            app:fabSize="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/list_constraint_layout"
+            app:srcCompat="@android:drawable/ic_menu_add" />
+
+        <ScrollView
+            android:id="@+id/scrollViewId"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/container">
+
+            </LinearLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

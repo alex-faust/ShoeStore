@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Shoe Store</string>
+    <string name="add_shoe">Add Shoe</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="coded_by_alex_lewis">coded by Alex Lewis</string>
+    <string name="welcome">WELCOME TO THE \nSHOE STORE APP</string>
+    <string name="instructions">INSTRUCTIONS</string>
+    <string name="instructions2">On the next page, click on the button \nto add a new shoe to the list</string>
+    <string name="instructions3">After you save the infomation, \nthe new shoe will show up on the list</string>
+    <string name="go_to_list">GO TO LIST</string>
+    <string name="shoe_name">Shoe Name:</string>
+    <string name="cancel">CANCEL</string>
+    <string name="save">SAVE</string>
+    <string name="company_name">Company Name:</string>
+    <string name="shoe_size">Shoe Size:</string>
+    <string name="shoe_info">Shoe Info:</string>
+</resources>
