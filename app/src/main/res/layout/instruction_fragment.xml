@@ -7,6 +7,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/instructionsFragment"
+        android:background="@drawable/checkered_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -19,9 +20,7 @@
             android:layout_marginTop="182dp"
             android:layout_marginEnd="174dp"
             android:text="@string/instructions2"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            android:textStyle="bold"
+            style="@style/TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -34,9 +33,7 @@
             android:layout_marginTop="88dp"
             android:layout_marginEnd="172dp"
             android:text="@string/instructions3"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            android:textStyle="bold"
+            style="@style/TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/instructionsText1" />
@@ -50,6 +47,7 @@
             android:layout_marginEnd="162dp"
             android:layout_marginBottom="198dp"
             android:text="@string/go_to_list"
+            style="@style/Button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

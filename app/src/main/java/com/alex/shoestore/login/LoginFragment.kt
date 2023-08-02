@@ -17,9 +17,10 @@ class LoginFragment: Fragment() {
 
         val binding: LoginFragmentBinding = DataBindingUtil.inflate(
             inflater, R.layout.login_fragment, container, false)
-
+        binding.loginFragment.background.alpha = 75
         binding.signInButton.setOnClickListener {
-            findNavController().navigate(LoginFragmentDirections.actionLoginDestinationToWelcomeDestination())
+            findNavController().navigate(LoginFragmentDirections
+                .actionLoginDestinationToWelcomeDestination())
         }
 
         binding.signUpButton.setOnClickListener {
@@ -27,8 +28,6 @@ class LoginFragment: Fragment() {
                 .actionLoginDestinationToWelcomeDestination())
         }
 
-        setHasOptionsMenu(false)
         return binding.root
-
     }
 }

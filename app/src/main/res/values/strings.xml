@@ -17,4 +17,6 @@
     <string name="shoe_info">Shoe Info:</string>
     <string name="shoe_description"> </string>
     <string name="description">Description</string>
+    <string name="enter_a_password">Enter a password</string>
+    <string name="enter_an_email_address">Enter an email address</string>
 </resources>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.alex.shoestore.welcome.WelcomeFragment">
@@ -9,20 +8,20 @@
         android:id="@+id/welcomeFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/checkered_background"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/welcomeText1"
+            style="@style/TextView"
             android:layout_width="277dp"
             android:layout_height="174dp"
             android:layout_marginStart="171dp"
             android:layout_marginTop="132dp"
             android:layout_marginEnd="182dp"
             android:text="@string/welcome"
-            android:textAlignment="center"
             android:textDirection="firstStrong"
             android:textSize="34sp"
-            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.424"
             app:layout_constraintStart_toStartOf="parent"
@@ -30,13 +29,13 @@
 
         <TextView
             android:id="@+id/welcomeText2"
+            style="@style/TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="171dp"
             android:layout_marginTop="64dp"
             android:layout_marginEnd="182dp"
             android:text="@string/coded_by_alex_lewis"
-            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.459"
             app:layout_constraintStart_toStartOf="parent"
@@ -44,6 +43,7 @@
 
         <Button
             android:id="@+id/navToInstructionsButton"
+            style="@style/Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="162dp"

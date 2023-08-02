@@ -13,6 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/checkered_background"
         android:id="@+id/list_constraint_layout">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -25,12 +26,13 @@
             android:layout_marginEnd="50dp"
             android:layout_marginBottom="50dp"
             android:contentDescription="fab"
+            app:fabCustomSize="75dp"
             app:fabSize="normal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/list_constraint_layout"
-            app:srcCompat="@android:drawable/ic_menu_add" />
+            app:srcCompat="@android:drawable/ic_menu_edit"/>
 
         <ScrollView
             android:id="@+id/scrollViewId"
@@ -39,13 +41,12 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:id="@+id/container">
 
             </LinearLayout>
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </layout>

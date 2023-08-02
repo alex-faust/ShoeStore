@@ -17,6 +17,7 @@ class WelcomeFragment : Fragment() {
 
         val binding: WelcomeFragmentBinding = DataBindingUtil.inflate(
             inflater, R.layout.welcome_fragment, container, false)
+        binding.welcomeFragment.background.alpha = 75
 
         binding.navToInstructionsButton.setOnClickListener {
             findNavController().navigate(WelcomeFragmentDirections

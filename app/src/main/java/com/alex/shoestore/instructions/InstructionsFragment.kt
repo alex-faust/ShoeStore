@@ -18,12 +18,13 @@ class InstructionsFragment: Fragment() {
         val binding: InstructionFragmentBinding = DataBindingUtil.inflate(
             inflater, R.layout.instruction_fragment, container, false)
 
+        binding.instructionsFragment.background.alpha = 75
+
         binding.navToShoeListButton.setOnClickListener {
             findNavController().navigate(InstructionsFragmentDirections
                 .actionInstructionsDestinationToShoeListDestination())
         }
 
-        setHasOptionsMenu(false)
         return binding.root
     }
 }

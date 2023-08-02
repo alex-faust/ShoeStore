@@ -2,8 +2,6 @@ package com.alex.shoestore.shoe
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.Menu
-import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
@@ -33,6 +31,9 @@ class ShoeListFragment : Fragment() {
             inflater, R.layout.shoe_list_fragment,
             container, false
         )
+        (activity as AppCompatActivity?)!!.supportActionBar!!.setDisplayShowHomeEnabled(false)
+        setHasOptionsMenu(true)
+        binding.listConstraintLayout.background.alpha = 75
 
         binding.shoeViewModel = viewModel
 
@@ -48,13 +49,7 @@ class ShoeListFragment : Fragment() {
             findNavController().navigate(ShoeListFragmentDirections.listToDetail())
         }
 
-        (activity as AppCompatActivity?)!!.supportActionBar!!.setDisplayShowHomeEnabled(false)
-        setHasOptionsMenu(false)
         return binding.root
-    }
-    @Deprecated("Deprecated in Java")
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
     }
 
     fun addShoe(shoe: Shoe) {
@@ -68,15 +63,15 @@ class ShoeListFragment : Fragment() {
 
         lin.addView(view)
     }
+    @Deprecated("Deprecated in Java")
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.logout -> {
+                binding.listConstraintLayout.removeAllViews()
                 findNavController().navigate(ShoeListFragmentDirections.listToLogin())
                 true
             }
             else -> super.onOptionsItemSelected(item)
         }
     }
-
-
 }

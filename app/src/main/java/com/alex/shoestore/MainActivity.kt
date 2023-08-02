@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.activity_main)
         Timber.plant(Timber.DebugTree())
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         drawerLayout = binding.drawerLayout
@@ -32,26 +31,23 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
 
         val navController = findNavController(R.id.nav_host_fragment)
-        //NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
-        //setSupportActionBar(binding.toolbar)
-
-
         appBarConfiguration = AppBarConfiguration(navController.graph)
-        //setupActionBarWithNavController(navController, drawerLayout)
 
         setupWithNavController(binding.toolbar, navController)
 
         navController.addOnDestinationChangedListener { nc: NavController, nd: NavDestination, args: Bundle? ->
             when (nd.id) {
-                R.id.shoe_list_destination,
+                R.id.shoe_list_destination ,
                 R.id.shoe_detail_destination -> binding.toolbar.navigationIcon = null
+            }
+            if (nd.id != R.id.shoe_list_destination ) {
+                binding.toolbar.navigationIcon = null
             }
         }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-
         menuInflater.inflate(R.menu.main_menu, menu)
         return true
     }

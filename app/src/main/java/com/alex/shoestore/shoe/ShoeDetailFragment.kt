@@ -26,7 +26,7 @@ class ShoeDetailFragment : Fragment() {
         binding = DataBindingUtil.inflate(
             inflater, R.layout.shoe_detail_fragment, container, false
         )
-
+        binding.shoeDetailConstraint.background.alpha = 75
         binding.shoeViewModel = viewModel
         binding.lifecycleOwner = this
 
@@ -40,11 +40,6 @@ class ShoeDetailFragment : Fragment() {
             val company = binding.companyNameInput.text.toString().trim()
             val info = binding.shoeInfoInput.text.toString().trim()
 
-
-
-           //val fields = listOf(name, size, company, info)
-
-            //val non = fields.any() { it == null }
             if(name == "" || company == "" || info == ""){
                 Toast.makeText(
                     this.activity, "Please enter all info",
@@ -56,15 +51,8 @@ class ShoeDetailFragment : Fragment() {
                 val action = ShoeDetailFragmentDirections.detailToList()
                 findNavController().navigate(action)
             }
-
-
         }
 
-        setHasOptionsMenu(false)
         return binding.root
-    }
-
-    fun cancelB(view: View) {
-        findNavController().navigate(ShoeDetailFragmentDirections.detailToList())
     }
 }
