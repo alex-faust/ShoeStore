@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Using Constraint Layout here because it's easy to align all the objects since it's
+not that many
+-->
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,8 +10,8 @@
     <data>
 
         <variable
-            name="shoeItems"
-            type="com.alex.shoestore.models.Shoe" />
+            name="shoeViewModel"
+            type="com.alex.shoestore.models.ShoeViewModel" />
     </data>
 
 
@@ -27,7 +30,7 @@
             android:layout_marginStart="101dp"
             android:layout_marginTop="39dp"
             android:layout_marginEnd="107dp"
-            android:text=""
+            android:text="@{shoeViewModel.shoeName}"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +55,7 @@
             android:layout_height="33dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="28dp"
-            android:text=""
+            android:text="@{shoeViewModel.companyName}"
             android:textAlignment="textStart"
             app:layout_constraintStart_toEndOf="@+id/companyNameID"
             app:layout_constraintTop_toBottomOf="@+id/shoeNameResult" />
@@ -77,7 +80,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="54dp"
-            android:text=""
+            android:text="@{shoeViewModel.shoeSize.toString()}"
             android:textAlignment="textStart"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/shoeSizeID"
@@ -91,7 +94,7 @@
             android:layout_marginStart="58dp"
             android:layout_marginTop="36dp"
             android:layout_marginEnd="59dp"
-            android:text=""
+            android:text="@{shoeViewModel.shoeInfo}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/shoeSizeID" />

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Using Constraint Layout here because it's easy to place and line up the objects inside
+-->
 <layout
+
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -142,6 +145,7 @@
             android:layout_marginEnd="56dp"
             android:text="@string/save"
             style="@style/Button"
+            android:onClick="@{() -> shoeViewModel.saveTheInfo()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.51"
             app:layout_constraintStart_toEndOf="@+id/cancelButton"

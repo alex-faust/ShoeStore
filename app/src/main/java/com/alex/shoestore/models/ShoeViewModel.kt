@@ -11,11 +11,42 @@ class ShoeViewModel : ViewModel() {
     val shoeList: LiveData<List<Shoe>>
         get() = _shoeList
 
+    private val _shoeName = MutableLiveData<String>()
+    val shoeName: LiveData<String>
+        get() = _shoeName
+
+    private val _shoeSize = MutableLiveData<Double>()
+    val shoeSize: LiveData<Double>
+        get() = _shoeSize
+
+    private val _companyName = MutableLiveData<String>()
+    val companyName: LiveData<String>
+        get() = _companyName
+
+    private val _shoeInfo = MutableLiveData<String>()
+    val shoeInfo: LiveData<String>
+        get() = _shoeInfo
+
+    private val _saveInfo = MutableLiveData<Boolean>()
+    val saveInfo: LiveData<Boolean>
+        get() = _saveInfo
+
+
     init {
         _shoeList.value = ArrayList()
+        _saveInfo.value = true
     }
 
-    fun addShoe(sName: String, sSize: Double, cName: String, sInfo: String) {
-        (_shoeList.value as ArrayList<Shoe>).add(Shoe(sName, sSize, cName, sInfo))
+    fun saveTheInfo() {
+        _saveInfo.value = true
+        (_shoeList.value as ArrayList<Shoe>).add(
+            Shoe(
+                _shoeName.toString(),
+                _shoeSize.toString().toDouble(),
+                _companyName.toString(),
+                _shoeInfo.toString()
+            )
+        )
     }
+
 }

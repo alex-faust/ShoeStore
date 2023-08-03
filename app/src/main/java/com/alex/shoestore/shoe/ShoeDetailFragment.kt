@@ -34,7 +34,33 @@ class ShoeDetailFragment : Fragment() {
             findNavController().navigate(ShoeDetailFragmentDirections.detailToList())
         }
 
-        binding.saveButton.setOnClickListener {
+
+        viewModel.saveInfo.observe(viewLifecycleOwner) { saveTheInfo ->
+            if (!saveTheInfo) {
+                findNavController().navigate(ShoeDetailFragmentDirections.detailToList())
+            } else {
+                val name = binding.shoeNameInput.text.toString().trim()
+                val size = binding.shoeSizeInput.text.toString().trim().toDouble()
+                val company = binding.companyNameInput.text.toString().trim()
+                val info = binding.shoeInfoInput.text.toString().trim()
+
+                if (name == "" || company == "" || info == "") {
+                    Toast.makeText(
+                        this.activity, "Please enter all info",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+                    //viewModel.saveTheInfo()
+
+                    val action = ShoeDetailFragmentDirections.detailToList()
+                    findNavController().navigate(action)
+
+                    viewModel.saveTheInfo()
+                }
+            }
+        }
+
+        /*binding.saveButton.setOnClickListener {
             val name = binding.shoeNameInput.text.toString().trim()
             val size = binding.shoeSizeInput.text.toString().trim().toDouble()
             val company = binding.companyNameInput.text.toString().trim()
@@ -51,7 +77,7 @@ class ShoeDetailFragment : Fragment() {
                 val action = ShoeDetailFragmentDirections.detailToList()
                 findNavController().navigate(action)
             }
-        }
+        }*/
 
         return binding.root
     }

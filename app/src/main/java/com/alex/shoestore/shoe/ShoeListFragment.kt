@@ -6,7 +6,6 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -36,8 +35,9 @@ class ShoeListFragment : Fragment() {
         binding.listConstraintLayout.background.alpha = 75
 
         binding.shoeViewModel = viewModel
+        binding.lifecycleOwner = this
 
-        viewModel.shoeList.observe(viewLifecycleOwner) {
+       viewModel.shoeList.observe(viewLifecycleOwner) {
             binding.container.removeAllViews()
 
             for (shoe in viewModel.shoeList.value!!) {
@@ -52,14 +52,22 @@ class ShoeListFragment : Fragment() {
         return binding.root
     }
 
-    fun addShoe(shoe: Shoe) {
+    private fun addShoe(shoe: Shoe) {
         val lin: LinearLayout = binding.container
         val view: View? = View.inflate(this.activity, R.layout.shoe_item, null)
 
+        /*
         view?.findViewById<TextView>(R.id.shoeNameResult)?.text = shoe.name
-        view?.findViewById<TextView>(R.id.shoeSizeResult)?.text = shoe.size.toString()
+        view?.findViewById<TextView>(R.id.shoeSizeResult)?.text = shoe.size
+            .toString().toDouble().toString()
         view?.findViewById<TextView>(R.id.companyNameResult)?.text = shoe.company
         view?.findViewById<TextView>(R.id.shoeInfoResult)?.text = shoe.description
+        */
+
+        shoe.name = viewModel.shoeName.value.toString()
+        shoe.size = viewModel.shoeSize.value.toString().toDouble()
+        shoe.company = viewModel.companyName.toString()
+        shoe.description = viewModel.shoeInfo.toString()
 
         lin.addView(view)
     }
